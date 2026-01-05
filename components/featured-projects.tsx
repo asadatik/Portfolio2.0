@@ -34,8 +34,8 @@ export function FeaturedProjects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-(--text-primary) mb-4">Featured Projects</h2>
-          <p className="text-(--text-muted) text-lg max-w-2xl mx-auto leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Featured Projects</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             A selection of my recent work building full-stack applications and platforms
           </p>
         </motion.div>
@@ -52,69 +52,87 @@ export function FeaturedProjects() {
               key={project.slug}
               variants={item}
               whileHover={{ y: -8 }}
-              className="group rounded-2xl border border-(--border-subtle) bg-(--bg-surface) overflow-hidden transition-all hover:border-(--accent) hover:shadow-2xl hover:shadow-(--accent)/10"
+              className="group rounded-2xl glass border-glow overflow-hidden transition-all"
             >
               <Link href={`/projects/${project.slug}`}>
-                {/* Thumbnail */}
-                <div className="relative h-48 bg-(--bg-app) overflow-hidden">
-                  <Image
-                    src={project.thumbnail || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                <div className="relative h-48 bg-background overflow-hidden">
+                  <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }} className="w-full h-full">
+                    <Image
+                      src={project.thumbnail || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0.6 }}
+                    whileHover={{ opacity: 0.8 }}
+                    className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-(--bg-surface) to-transparent opacity-60" />
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <div className="text-xs text-(--accent) font-medium mb-2">{project.type}</div>
-                  <h3 className="text-xl font-bold text-(--text-primary) mb-2 group-hover:text-(--accent) transition-colors">
+                  <motion.div
+                    initial={{ color: "hsl(var(--primary))" }}
+                    whileHover={{ color: "hsl(var(--primary))" }}
+                    className="text-xs font-medium mb-2 text-primary"
+                  >
+                    {project.type}
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-(--text-muted) text-sm mb-4 leading-relaxed line-clamp-2">{project.tagline}</p>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">{project.tagline}</p>
 
-                  {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {[...project.techStack.frontend.slice(0, 2), ...project.techStack.backend.slice(0, 1)].map(
-                      (tech) => (
-                        <span
+                      (tech, i) => (
+                        <motion.span
                           key={tech}
-                          className="text-xs px-2 py-1 rounded bg-(--bg-app) text-(--text-muted) border border-(--border-subtle)"
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          transition={{ delay: i * 0.05 }}
+                          className="text-xs px-2 py-1 rounded bg-gradient-to-br from-primary/10 to-background text-primary border border-primary/30 cursor-default"
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ),
                     )}
                   </div>
 
                   {/* Links */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-(--border-subtle)">
-                    <span className="text-sm text-(--accent) flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <div className="flex items-center gap-3 pt-4 border-t border-border">
+                    <motion.span className="text-sm text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
                       View Case Study
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
+                      <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                        <ArrowRight className="w-4 h-4" />
+                      </motion.div>
+                    </motion.span>
                     {project.links.demo && (
-                      <a
+                      <motion.a
                         href={project.links.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-(--text-muted) hover:text-(--accent) transition-colors"
+                        className="text-muted-foreground hover:text-primary transition-colors"
                         onClick={(e) => e.stopPropagation()}
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         <ExternalLink className="w-4 h-4" />
-                      </a>
+                      </motion.a>
                     )}
                     {project.links.github && (
-                      <a
+                      <motion.a
                         href={project.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-(--text-muted) hover:text-(--accent) transition-colors"
+                        className="text-muted-foreground hover:text-primary transition-colors"
                         onClick={(e) => e.stopPropagation()}
+                        whileHover={{ scale: 1.2, rotate: 12 }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         <Github className="w-4 h-4" />
-                      </a>
+                      </motion.a>
                     )}
                   </div>
                 </div>
@@ -130,17 +148,20 @@ export function FeaturedProjects() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-(--accent) text-(--accent) hover:bg-(--accent-muted) bg-transparent"
-          >
-            <Link href="/projects">
-              View All Projects
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-primary to-cyan-500 text-background hover:shadow-lg hover:shadow-primary/30 glow-lg"
+            >
+              <Link href="/projects">
+                View All Projects
+                <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </motion.div>
+              </Link>
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

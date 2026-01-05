@@ -33,84 +33,111 @@ export function BentoHighlights() {
       viewport={{ once: true, margin: "-100px" }}
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
     >
-      {/* Featured Project - Large */}
       <motion.div
         variants={item}
-        whileHover={{ scale: 1.02, borderColor: "var(--accent)" }}
-        className="lg:col-span-2 rounded-2xl border border-(--border-subtle) bg-(--bg-surface) p-6 overflow-hidden relative group cursor-pointer transition-all"
+        whileHover={{ scale: 1.02, y: -4 }}
+        className="lg:col-span-2 rounded-2xl glass border-glow p-6 overflow-hidden relative group cursor-pointer transition-all"
       >
         <Link href={`/projects/${featuredProject?.slug}`}>
-          <div className="absolute inset-0 bg-gradient-to-br from-(--accent-muted) to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/5 transition-opacity"
+          />
           <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-3">
-              <Sparkles className="w-5 h-5 text-(--accent)" />
-              <span className="text-sm font-medium text-(--accent)">Featured Project</span>
-            </div>
-            <h3 className="text-2xl font-bold text-(--text-primary) mb-2">{featuredProject?.title}</h3>
-            <p className="text-(--text-muted) mb-4 leading-relaxed">{featuredProject?.tagline}</p>
+            <motion.div whileHover={{ x: 4 }} className="flex items-center gap-2 mb-3">
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              >
+                <Sparkles className="w-5 h-5 text-primary" />
+              </motion.div>
+              <span className="text-sm font-medium text-primary">Featured Project</span>
+            </motion.div>
+            <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+              {featuredProject?.title}
+            </h3>
+            <p className="text-muted-foreground mb-4 leading-relaxed">{featuredProject?.tagline}</p>
             <div className="flex flex-wrap gap-2">
-              {featuredProject?.techStack.frontend.slice(0, 3).map((tech) => (
-                <span
+              {featuredProject?.techStack.frontend.slice(0, 3).map((tech, i) => (
+                <motion.span
                   key={tech}
-                  className="text-xs px-3 py-1 rounded-full bg-(--bg-app) text-(--text-muted) border border-(--border-subtle)"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-primary/10 to-background text-primary border border-primary/30"
                 >
                   {tech}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>
         </Link>
       </motion.div>
 
-      {/* Experience Summary */}
       <motion.div
         variants={item}
-        whileHover={{ scale: 1.02, borderColor: "var(--accent)" }}
-        className="rounded-2xl border border-(--border-subtle) bg-(--bg-surface) p-6 transition-all"
+        whileHover={{ scale: 1.02, y: -4 }}
+        className="rounded-2xl glass border-glow p-6 transition-all group"
       >
-        <div className="flex items-center gap-2 mb-3">
-          <Briefcase className="w-5 h-5 text-(--accent)" />
-          <span className="text-sm font-medium text-(--accent)">Experience</span>
-        </div>
-        <div className="text-4xl font-bold text-(--text-primary) mb-2">{profile.yearsOfExperience}+</div>
-        <p className="text-(--text-muted) leading-relaxed">Years building production-ready web applications</p>
+        <motion.div whileHover={{ x: 4 }} className="flex items-center gap-2 mb-3">
+          <motion.div animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
+            <Briefcase className="w-5 h-5 text-primary glow" />
+          </motion.div>
+          <span className="text-sm font-medium text-primary">Experience</span>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold text-foreground mb-2"
+        >
+          {profile.yearsOfExperience}+
+        </motion.div>
+        <p className="text-muted-foreground leading-relaxed">Years building production-ready web applications</p>
       </motion.div>
 
-      {/* What I Do */}
       <motion.div
         variants={item}
-        whileHover={{ scale: 1.02, borderColor: "var(--accent)" }}
-        className="rounded-2xl border border-(--border-subtle) bg-(--bg-surface) p-6 transition-all"
+        whileHover={{ scale: 1.02, y: -4 }}
+        className="rounded-2xl glass border-glow p-6 transition-all"
       >
-        <div className="flex items-center gap-2 mb-3">
-          <Code2 className="w-5 h-5 text-(--accent)" />
-          <span className="text-sm font-medium text-(--accent)">What I Do</span>
-        </div>
-        <h4 className="text-xl font-bold text-(--text-primary) mb-2">Full-stack Development</h4>
-        <p className="text-(--text-muted) text-sm leading-relaxed">
+        <motion.div whileHover={{ x: 4 }} className="flex items-center gap-2 mb-3">
+          <motion.div
+            animate={{ rotate: [0, -10, 10, 0] }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          >
+            <Code2 className="w-5 h-5 text-primary" />
+          </motion.div>
+          <span className="text-sm font-medium text-primary">What I Do</span>
+        </motion.div>
+        <h4 className="text-xl font-bold text-foreground mb-2">Full-stack Development</h4>
+        <p className="text-muted-foreground text-sm leading-relaxed">
           Frontend, backend, databases, and everything in between
         </p>
       </motion.div>
 
-      {/* Currently Working On - Spans 2 cols */}
       <motion.div
         variants={item}
-        whileHover={{ scale: 1.02, borderColor: "var(--accent)" }}
-        className="lg:col-span-2 rounded-2xl border border-(--border-subtle) bg-gradient-to-br from-(--bg-surface) to-(--bg-app) p-6 transition-all"
+        whileHover={{ scale: 1.02, y: -4 }}
+        className="lg:col-span-2 rounded-2xl glass border-glow p-6 transition-all"
       >
-        <div className="flex items-center gap-2 mb-3">
-          <Zap className="w-5 h-5 text-(--accent)" />
-          <span className="text-sm font-medium text-(--accent)">Currently Working On</span>
-        </div>
-        <h4 className="text-xl font-bold text-(--text-primary) mb-3">{profile.currentlyWorkingOn}</h4>
+        <motion.div whileHover={{ x: 4 }} className="flex items-center gap-2 mb-3">
+          <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}>
+            <Zap className="w-5 h-5 text-primary glow" />
+          </motion.div>
+          <span className="text-sm font-medium text-primary">Currently Working On</span>
+        </motion.div>
+        <h4 className="text-xl font-bold text-foreground mb-3">{profile.currentlyWorkingOn}</h4>
         <div className="flex flex-wrap gap-2">
-          {skills.frontend.slice(0, 5).map((tech) => (
-            <span
+          {skills.frontend.slice(0, 5).map((tech, i) => (
+            <motion.span
               key={tech}
-              className="text-xs px-3 py-1 rounded-full bg-(--bg-app) text-(--text-muted) border border-(--border-subtle)"
+              whileHover={{ scale: 1.1, y: -2 }}
+              transition={{ delay: i * 0.05 }}
+              className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-primary/10 to-background text-primary border border-primary/30 cursor-default"
             >
               {tech}
-            </span>
+            </motion.span>
           ))}
         </div>
       </motion.div>

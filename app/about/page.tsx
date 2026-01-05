@@ -25,7 +25,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="py-24 bg-gradient-to-b from-(--bg-app) to-(--bg-surface)">
+      <section className="py-24 bg-linear-to-b from-background to-card">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -33,18 +33,18 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-(--text-primary) mb-6 text-balance">About Me</h1>
-            <div className="flex flex-wrap gap-6 text-(--text-muted) mb-8">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 text-balance">About Me</h1>
+            <div className="flex flex-wrap gap-6 text-muted-foreground mb-8">
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-(--accent)" />
+                <MapPin className="w-5 h-5 text-primary" />
                 <span>{profile.location}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-(--accent)" />
+                <Briefcase className="w-5 h-5 text-primary" />
                 <span>{profile.role}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-(--accent)" />
+                <Calendar className="w-5 h-5 text-primary" />
                 <span>{profile.yearsOfExperience}+ years experience</span>
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-6 text-lg text-(--text-muted) leading-relaxed"
+              className="space-y-6 text-lg text-muted-foreground leading-relaxed"
             >
               {profile.bio.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
@@ -72,7 +72,7 @@ export default function AboutPage() {
       </section>
 
       {/* Skills */}
-      <section className="py-16 bg-(--bg-surface)">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -80,8 +80,8 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl font-bold text-(--text-primary) mb-4">Skills & Technologies</h2>
-            <div className="h-1 w-20 bg-(--accent) rounded mb-12" />
+            <h2 className="text-4xl font-bold text-foreground mb-4">Skills & Technologies</h2>
+            <div className="h-1 w-20 bg-primary rounded mb-12" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Frontend */}
@@ -90,14 +90,14 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="p-6 rounded-2xl bg-(--bg-app) border border-(--border-subtle)"
+                className="p-6 rounded-2xl bg-background border border-border"
               >
-                <h3 className="text-xl font-bold text-(--accent) mb-4">Frontend</h3>
+                <h3 className="text-xl font-bold text-primary mb-4">Frontend</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.frontend.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm rounded-full bg-(--bg-surface) text-(--text-muted) border border-(--border-subtle) hover:border-(--accent) hover:text-(--accent) transition-all"
+                      className="px-3 py-1.5 text-sm rounded-full bg-card text-muted-foreground border border-border hover:border-primary hover:text-primary transition-all"
                     >
                       {skill}
                     </span>
@@ -111,14 +111,14 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="p-6 rounded-2xl bg-(--bg-app) border border-(--border-subtle)"
+                className="p-6 rounded-2xl bg-background border border-border"
               >
-                <h3 className="text-xl font-bold text-(--accent) mb-4">Backend</h3>
+                <h3 className="text-xl font-bold text-primary mb-4">Backend</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.backend.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm rounded-full bg-(--bg-surface) text-(--text-muted) border border-(--border-subtle) hover:border-(--accent) hover:text-(--accent) transition-all"
+                      className="px-3 py-1.5 text-sm rounded-full bg-card text-muted-foreground border border-border hover:border-primary hover:text-primary transition-all"
                     >
                       {skill}
                     </span>
@@ -132,14 +132,14 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="p-6 rounded-2xl bg-(--bg-app) border border-(--border-subtle)"
+                className="p-6 rounded-2xl bg-background border border-border"
               >
-                <h3 className="text-xl font-bold text-(--accent) mb-4">Databases & Infrastructure</h3>
+                <h3 className="text-xl font-bold text-primary mb-4">Databases & Infrastructure</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.databases.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm rounded-full bg-(--bg-surface) text-(--text-muted) border border-(--border-subtle) hover:border-(--accent) hover:text-(--accent) transition-all"
+                      className="px-3 py-1.5 text-sm rounded-full bg-card text-muted-foreground border border-border hover:border-primary hover:text-primary transition-all"
                     >
                       {skill}
                     </span>
@@ -153,14 +153,14 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="p-6 rounded-2xl bg-(--bg-app) border border-(--border-subtle)"
+                className="p-6 rounded-2xl bg-background border border-border"
               >
-                <h3 className="text-xl font-bold text-(--accent) mb-4">Tools & Others</h3>
+                <h3 className="text-xl font-bold text-primary mb-4">Tools & Others</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.tools.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm rounded-full bg-(--bg-surface) text-(--text-muted) border border-(--border-subtle) hover:border-(--accent) hover:text-(--accent) transition-all"
+                      className="px-3 py-1.5 text-sm rounded-full bg-card text-muted-foreground border border-border hover:border-primary hover:text-primary transition-all"
                     >
                       {skill}
                     </span>
@@ -181,8 +181,8 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl font-bold text-(--text-primary) mb-4">Experience</h2>
-            <div className="h-1 w-20 bg-(--accent) rounded mb-12" />
+            <h2 className="text-4xl font-bold text-foreground mb-4">Experience</h2>
+            <div className="h-1 w-20 bg-primary rounded mb-12" />
 
             <motion.div
               variants={container}
@@ -195,27 +195,27 @@ export default function AboutPage() {
                 <motion.div
                   key={index}
                   variants={item}
-                  className="relative pl-8 border-l-2 border-(--border-subtle) hover:border-(--accent) transition-colors pb-8 last:pb-0"
+                  className="relative pl-8 border-l-2 border-border hover:border-primary transition-colors pb-8 last:pb-0"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-(--accent) border-4 border-(--bg-app)" />
+                  <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
 
                   <div className="space-y-3">
                     <div>
-                      <h3 className="text-2xl font-bold text-(--text-primary)">{exp.role}</h3>
+                      <h3 className="text-2xl font-bold text-foreground">{exp.role}</h3>
                       <div className="flex flex-wrap items-center gap-3 mt-2">
-                        <span className="text-(--accent) font-medium">{exp.company}</span>
-                        <span className="text-xs px-2 py-1 rounded bg-(--bg-surface) text-(--text-muted) border border-(--border-subtle)">
+                        <span className="text-primary font-medium">{exp.company}</span>
+                        <span className="text-xs px-2 py-1 rounded bg-card text-muted-foreground border border-border">
                           {exp.type}
                         </span>
-                        <span className="text-(--text-muted) text-sm">{exp.dateRange}</span>
+                        <span className="text-muted-foreground text-sm">{exp.dateRange}</span>
                       </div>
                     </div>
 
-                    <ul className="space-y-2 text-(--text-muted) leading-relaxed">
+                    <ul className="space-y-2 text-muted-foreground leading-relaxed">
                       {exp.responsibilities.map((resp, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-(--accent) mt-1.5">•</span>
+                          <span className="text-primary mt-1.5">•</span>
                           <span>{resp}</span>
                         </li>
                       ))}
