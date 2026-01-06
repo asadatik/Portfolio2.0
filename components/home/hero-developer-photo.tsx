@@ -184,7 +184,7 @@ export function HeroDeveloperPhoto() {
             <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
               <div className="relative w-full h-full">
                 <Image
-                  src="/Atik.pic.png"      // can be atik-avatar.png if square
+                  src="/Atik.pic.png" 
                   alt="Atik - Full-stack Developer"
                   fill
                   className="object-cover"
@@ -308,10 +308,7 @@ export function HeroDeveloperPhoto() {
           )
         })}
 
-        {/* ============================================
-            CENTRAL GLOW ORBS
-            ============================================ */}
-
+   
         {/* Pulsing center orb */}
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 blur-2xl"

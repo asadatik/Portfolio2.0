@@ -98,9 +98,7 @@ export function HeroSection() {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 pt-20">
-            {/* ============================================
-          ANIMATED BACKGROUND GRADIENT
-          ============================================ */}
+     
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Animated background shapes */}
                 <motion.div
@@ -146,14 +144,10 @@ export function HeroSection() {
                 />
             </div>
 
-            {/* ============================================
-          MAIN CONTAINER
-          ============================================ */}
+       {/* Main Content Container */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-120px)]">
-                    {/* ============================================
-              LEFT SIDE: CONTENT & TYPING ANIMATION
-              ============================================ */}
+                    
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
@@ -282,7 +276,8 @@ export function HeroSection() {
                                 {[
                                     { value: "2+", label: "Years Exp." },
                                     { value: "15+", label: "Projects" },
-                                    { value: "50K+", label: "Users" },
+                                    
+                                 
                                 ].map((stat, i) => (
                                     <motion.div
                                         key={i}

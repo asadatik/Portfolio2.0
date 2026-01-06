@@ -2,10 +2,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, Download, ChevronDown } from "lucide-react"
-import { profile } from "@/data/profile"
+
 import { Button } from "@/components/ui/button"
-import { Hero3DVisual } from "@/components/hero-3d-visual"
 import { BentoHighlights } from "@/components/bento-highlights"
 import { FeaturedProjects } from "@/components/featured-projects"
 import { useRef } from "react"
@@ -23,20 +21,7 @@ export default function HomePage() {
        <HeroSection></HeroSection>  
 
       {/* Bento Highlights */}
-      <section className="py-24 bg-card">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">What I Bring</h2>
-            <p className="text-muted-foreground">A quick overview of my expertise and current focus</p>
-          </motion.div>
-          <BentoHighlights />
-        </div>
-      </section>
+      <BentoHighlights />
 
       {/* Featured Projects */}
       <FeaturedProjects />
