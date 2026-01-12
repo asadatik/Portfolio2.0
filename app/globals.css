@@ -512,7 +512,7 @@
     }
   }
 
-  /* Card reveal animation on load */
+  /* Card reveal animation on load
   .card-reveal {
     animation: card-reveal 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
   }
@@ -526,10 +526,10 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
+  } */
 
   /* Staggered card animation utility */
-  .card-reveal-1 {
+  /* .card-reveal-1 {
     animation-delay: 0.1s;
   }
   .card-reveal-2 {
@@ -546,7 +546,7 @@
   }
   .card-reveal-6 {
     animation-delay: 0.6s;
-  }
+  } */
 
   /* Premium button gradient animations */
   @keyframes gradient-rotate {

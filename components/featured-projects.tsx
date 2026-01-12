@@ -213,7 +213,7 @@ export function FeaturedProjects() {
             {[2, 1].map((offset) => (
               <motion.div
                 key={offset}
-                className="absolute w-[90%] h-[95%] rounded-2xl bg-gradient-to-br from-slate-900/40 to-slate-800/30 backdrop-blur-sm border border-cyan-500/10"
+                className="absolute w-[90%] h-[95%] rounded-2xl bg-gradient-to-br from-cyan-900/40 via-blue-400 to-cyan-900/40 backdrop-blur-sm border border-cyan-500/10"
                 style={{
                   zIndex: -offset,
                   transform: `translateY(${offset * 16}px) scale(${1 - offset * 0.04})`,
@@ -232,7 +232,7 @@ export function FeaturedProjects() {
           </div>
 
           {/* Main carousel content */}
-          <div className="relative h-[600px] flex items-center justify-center">
+          <div className="relative h-[650px] flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -327,7 +327,7 @@ export function FeaturedProjects() {
                   </motion.div>
 
                   {/* Inner card background */}
-                  <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-slate-900/95 to-slate-800/90 backdrop-blur-xl pointer-events-none" />
+                  <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-cyan-900/95 to-slate-800/90 backdrop-blur-xl pointer-events-none" />
 
                   {/* Content */}
                   <div className="relative z-10 h-full flex flex-col">
@@ -573,10 +573,11 @@ export function FeaturedProjects() {
         >
                     <Link href="/projects">
                                     <PremiumButton
-                                        text="Projects"
+                                        text="More Projects"
                                         icon="→"
                                         variant="success"
-                                        size="medium"
+                                        size="large"
+                                     
                                     />
                                 </Link>
         </motion.div>

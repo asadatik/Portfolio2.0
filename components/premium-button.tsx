@@ -16,15 +16,15 @@ interface PremiumButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const sizeStyles = {
-  small: "w-[140px] h-[45px]",
-  medium: "w-[180px] h-[55px]",
+  small: "w-[140px] h-[47px]",
+  medium: "w-[180px] h-[57px]",
   large: "w-[220px] h-[65px]",
 }
 
 const labelSizes = {
-  small: "w-[110px] h-[35px] text-sm",
-  medium: "w-[156px] h-[45px] text-base",
-  large: "w-[190px] h-[50px] text-lg",
+  small: "w-[130px] h-[40px] text-sm",
+  medium: "w-[170px] h-[50px] text-base",
+  large: "w-[210px] h-[60px] text-lg",
 }
 
 const variantGradients = {
@@ -76,7 +76,7 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
         whileHover={!disabled && !loading ? { y: -2 } : {}}
         whileTap={!disabled && !loading ? { y: 0 } : {}}
         className={cn(
-          "relative rounded-lg  overflow-hidden transition-all duration-300 flex items-center justify-center font-semibold cursor-pointer group",
+          "relative rounded-full  overflow-hidden transition-all duration-300 flex items-center justify-center font-semibold cursor-pointer group",
           "disabled:opacity-50 disabled:cursor-not-allowed",
           "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-950",
           sizeStyles[size],
@@ -84,18 +84,17 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
         )}
         {...props}
       >
-        {/* ============================================
-            GRADIENT CONTAINER (ROTATING BACKGROUND)
-            ============================================ */}
+     
+     {/*  */}
         <motion.div
-          className="absolute inset-0 rounded-lg overflow-hidden z-0"
+          className="absolute inset-0  overflow-hidden "
           style={{
             filter: "blur(12px)",
             opacity: 0.8,
           }}
         >
           <motion.div
-            className="absolute inset-0 rounded-lg"
+            className="absolute inset-0 "
             style={{
               background: variantStyle.gradient,
               backgroundSize: "110% 110%",
@@ -109,16 +108,14 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
               ease: "linear",
             }}
             onHoverStart={() => {
-              // Speed up on hover (would need separate animation state for true hover effect)
+            
             }}
           />
         </motion.div>
 
-        {/* ============================================
-            GLOW EFFECT (GLASSMORPHISM)
-            ============================================ */}
+{/* GLASSMORPHISM EFFECT */}
         <motion.div
-          className="absolute inset-0 rounded-lg"
+          className="absolute inset-0 rounded-full"
           style={{
             background: `rgba(6, 249, 241, 0.15)`,
             boxShadow: `0 8px 32px 0 ${variantStyle.glow}, inset 0 0 20px rgba(6, 249, 241, 0.05)`,
@@ -196,10 +193,7 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
             </motion.div>
           )}
         </motion.div>
-
-        {/* ============================================
-            RIPPLE EFFECT ON CLICK
-            ============================================ */}
+{/* GLASSMORPHISM EFFECT */}
         {!loading && !disabled && (
           <motion.div
             className="absolute inset-0 pointer-events-none rounded-lg"
