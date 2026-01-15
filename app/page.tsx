@@ -10,6 +10,7 @@ import { useRef } from "react"
 import { HeroSection } from "@/components/home/hero-section"
 import { CTASection } from "@/components/home/cta-section"
 
+
 export default function HomePage() {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref })
@@ -28,7 +29,7 @@ export default function HomePage() {
       <FeaturedProjects />
 
       {/* CTA Section */}
-      <CTASection />
+           <CTASection></CTASection>
     </div>
   )
 }
