@@ -7,7 +7,7 @@ import Image from "next/image"
 import { ArrowRight, ExternalLink, Github } from "lucide-react"
 import { projects } from "@/data/projects"
 
-const filters = ["All", "Full-stack", "Frontend", "Backend", "Other"] as const
+const filters = ["All", "Full-stack", "mern-stack", "e-commerce", "other"] as const
 type Filter = (typeof filters)[number]
 
 const container = {

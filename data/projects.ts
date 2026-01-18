@@ -3,7 +3,7 @@ export interface Project {
   title: string
   tagline: string
   description: string
-  type: "Full-stack" | "Frontend" | "Backend" | "Other"
+  type: "Full-stack" |  "mern-stack" | "e-commerce" |  "other"
   featured: boolean
   thumbnail: string
   problem: string
@@ -27,8 +27,8 @@ export interface Project {
 export const projects: Project[] = [
 
 {
-  slug: "travel-booking-platform",
-  title: "Travel Booking & Payment Management System",
+  slug: "TripNest",
+  title: "TripNest",
   tagline: "Role-based travel booking platform with secure payments and admin control",
 
   description:
@@ -36,7 +36,7 @@ export const projects: Project[] = [
 
   type: "Full-stack",
   featured: true,
-  thumbnail: "/travel-dashboard.png",
+  thumbnail: "/TripNest.png",
 
   problem:
     "Many travel booking systems fail to properly separate user and admin responsibilities, leading to security risks, poor access control, and unreliable payment and booking management.",
@@ -92,80 +92,15 @@ export const projects: Project[] = [
   ],
 
   links: {
-    demo: "https://travel-booking-demo.example.com",
-    github: "https://github.com/yourusername/travel-booking-platform"
+    demo: "https://trip-nest-front-end.vercel.app",
+    github: "https://github.com/asadatik/TripNest-front-end"
   }
 }
 ,
 
 
 
-{
-  slug: "farmabazar",
-  title: "FarmaBazar",
-  tagline: "Role-based online medicine marketplace with secure payments",
-  description:
-    "FarmaBazar is a full-stack web application that enables users to purchase medicines online while allowing sellers to manage products and admins to control the platform through role-based dashboards.",
-  type: "Full-stack",
-  featured: true,
-  thumbnail: "/farmabazar-dashboard.png",
 
-  problem:
-    "Local medicine sellers and pharmacies often lack a centralized digital platform to sell medicines online, manage inventory, and track payments securely with proper role-based access control.",
-
-  solution:
-    "Built a full-stack role-based medicine marketplace using Next.js and TypeScript. The system supports admin, seller, and user dashboards, secure JWT-based authentication, Stripe payment integration, invoice generation, and advanced reporting features.",
-
-  techStack: {
-    frontend: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "React Hook Form",
-      "Redux Toolkit"
-    ],
-    backend: [
-      "Node.js",
-      "Express.js",
-      "JWT Authentication",
-      "Stripe API"
-    ],
-    database: ["MongoDB", "Mongoose"],
-    other: [
-      "Firebase Authentication",
-      "React Helmet",
-      "PDF & Excel Export"
-    ]
-  },
-
-  features: [
-    "Role-based authentication for Admin, Seller, and User",
-    "Medicine management with category-wise filtering",
-    "Advanced tables with pagination, sorting, and search",
-    "Stripe payment integration with paid and pending status",
-    "Invoice generation with download and print support",
-    "Admin dashboard with sales revenue overview",
-    "Seller dashboard with medicine and payment management",
-    "Sales report with date range filter and export options",
-    "Banner advertisement management by admin",
-    "JWT-secured private routes and protected APIs"
-  ],
-
-  result:
-    "Successfully implemented a complete end-to-end healthcare e-commerce platform demonstrating secure authentication, payment processing, and scalable role-based system design.",
-
-  metrics: [
-    "3 user roles implemented",
-    "30+ functional features",
-    "Secure payment & reporting workflows"
-  ],
-
-  links: {
-    demo: "https://farmabazar-demo.example.com",
-    github: "https://github.com/yourusername/farmabazar"
-  }
-} 
-,
 {
   "slug": "eventsphere",
   "title": "EventSphere",
@@ -173,7 +108,7 @@ export const projects: Project[] = [
   "description": "EventSphere is a full-stack web application designed for efficient event discovery, booking, and management. It supports role-based dashboards for admins, event organizers, and users, offering real-time seat selection, QR ticketing, interactive venue tours, membership tiers, and community engagement features.",
   "type": "Full-stack",
   "featured": true,
-  "thumbnail": "/eventsphere-dashboard.png",
+  "thumbnail": "/EventSphere.png",
 
   "problem": "Event discovery and booking platforms often lack centralized role-based management, community engagement, membership benefits, and real-time features, making it difficult for organizers to manage events and for users to have a seamless, interactive experience.",
 
@@ -231,10 +166,78 @@ export const projects: Project[] = [
   ],
 
   "links": {
-    "demo": "https://eventsphere-demo.example.com",
-    "github": "https://github.com/yourusername/eventsphere"
+    "demo": "https://event-sphere-ashen.vercel.app",
+    "github": "https://github.com/asadatik/EventSphere-Client"
   }
 }
+
+,
+{
+  slug: "farmabazar",
+  title: "FarmaBazar",
+  tagline: "Role-based online medicine marketplace with secure payments",
+  description:
+    "FarmaBazar is a full-stack web application that enables users to purchase medicines online while allowing sellers to manage products and admins to control the platform through role-based dashboards.",
+  type: "mern-stack",
+  featured: true,
+  thumbnail: "/Fharma_bazar_thumbnail.png",
+
+  problem:
+    "Local medicine sellers and pharmacies often lack a centralized digital platform to sell medicines online, manage inventory, and track payments securely with proper role-based access control.",
+
+  solution:
+    "Built a full-stack role-based medicine marketplace using Next.js and TypeScript. The system supports admin, seller, and user dashboards, secure JWT-based authentication, Stripe payment integration, invoice generation, and advanced reporting features.",
+
+  techStack: {
+    frontend: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React Hook Form",
+      "Redux Toolkit"
+    ],
+    backend: [
+      "Node.js",
+      "Express.js",
+      "JWT Authentication",
+      "Stripe API"
+    ],
+    database: ["MongoDB", "Mongoose"],
+    other: [
+      "Firebase Authentication",
+      "React Helmet",
+      "PDF & Excel Export"
+    ]
+  },
+
+  features: [
+    "Role-based authentication for Admin, Seller, and User",
+    "Medicine management with category-wise filtering",
+    "Advanced tables with pagination, sorting, and search",
+    "Stripe payment integration with paid and pending status",
+    "Invoice generation with download and print support",
+    "Admin dashboard with sales revenue overview",
+    "Seller dashboard with medicine and payment management",
+    "Sales report with date range filter and export options",
+    "Banner advertisement management by admin",
+    "JWT-secured private routes and protected APIs"
+  ],
+
+  result:
+    "Successfully implemented a complete end-to-end healthcare e-commerce platform demonstrating secure authentication, payment processing, and scalable role-based system design.",
+
+  metrics: [
+    "3 user roles implemented",
+    "30+ functional features",
+    "Secure payment & reporting workflows"
+  ],
+
+  links: {
+    demo: "https://medicine-selling.web.app",
+    github: "https://github.com/asadatik/FarmaBazar-Client"
+  }
+} 
+
 
 
 ]

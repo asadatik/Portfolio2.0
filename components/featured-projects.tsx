@@ -99,14 +99,14 @@ export function FeaturedProjects() {
   const currentProject = featuredProjects[currentIndex]
 
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
       {/* ============================================
           ANIMATED BACKGROUND ELEMENTS
           ============================================ */}
 
       {/* Top right glow */}
       <motion.div
-        className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/15 to-blue-500/10 blur-3xl"
+        className="absolute top-0 right-0 w-96 h-96 rounded-full bg-linear-to-br from-cyan-500/15 to-blue-500/10 blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -120,7 +120,7 @@ export function FeaturedProjects() {
 
       {/* Bottom left glow */}
       <motion.div
-        className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-gradient-to-tr from-purple-500/15 to-cyan-500/10 blur-3xl"
+        className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-linear-to-tr from-purple-500/15 to-cyan-500/10 blur-3xl"
         animate={{
           scale: [1, 1.15, 1],
           opacity: [0.3, 0.4, 0.3],
@@ -183,7 +183,7 @@ export function FeaturedProjects() {
           </motion.span>
 
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            Latest <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Projects</span>
+            Latest <span className="bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Projects</span>
           </h2>
 
           <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -213,7 +213,7 @@ export function FeaturedProjects() {
             {[2, 1].map((offset) => (
               <motion.div
                 key={offset}
-                className="absolute w-[90%] h-[95%] rounded-2xl bg-gradient-to-br from-cyan-900/40 via-blue-400 to-cyan-900/40 backdrop-blur-sm border border-cyan-500/10"
+                className="absolute w-[90%] h-[95%] rounded-2xl bg-linear-to-br from-cyan-900/40 via-blue-400 to-cyan-900/40 backdrop-blur-sm border border-cyan-500/10"
                 style={{
                   zIndex: -offset,
                   transform: `translateY(${offset * 16}px) scale(${1 - offset * 0.04})`,
@@ -385,7 +385,7 @@ export function FeaturedProjects() {
                       >
                         {/* Type badge */}
                         <div className="flex items-center gap-2">
-                          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 border border-cyan-500/30">
+                          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-linear-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 border border-cyan-500/30">
                             {currentProject.type}
                           </span>
                           {currentProject.featured && (

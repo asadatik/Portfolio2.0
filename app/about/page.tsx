@@ -173,60 +173,7 @@ export default function AboutPage() {
       </section>
 
       {/* Experience Timeline */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="text-4xl font-bold text-foreground mb-4">Experience</h2>
-            <div className="h-1 w-20 bg-primary rounded mb-12" />
-
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              {experience.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  variants={item}
-                  className="relative pl-8 border-l-2 border-border hover:border-primary transition-colors pb-8 last:pb-0"
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
-
-                  <div className="space-y-3">
-                    <div>
-                      <h3 className="text-2xl font-bold text-foreground">{exp.role}</h3>
-                      <div className="flex flex-wrap items-center gap-3 mt-2">
-                        <span className="text-primary font-medium">{exp.company}</span>
-                        <span className="text-xs px-2 py-1 rounded bg-card text-muted-foreground border border-border">
-                          {exp.type}
-                        </span>
-                        <span className="text-muted-foreground text-sm">{exp.dateRange}</span>
-                      </div>
-                    </div>
-
-                    <ul className="space-y-2 text-muted-foreground leading-relaxed">
-                      {exp.responsibilities.map((resp, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-primary mt-1.5">•</span>
-                          <span>{resp}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+     
     </div>
   )
 }
