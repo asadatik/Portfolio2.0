@@ -1,20 +1,23 @@
 // components/footer.tsx
 "use client"
 
-import { motion } from "framer-motion"
+import { motion , type Variants } from "framer-motion"
 import Link from "next/link"
 import { useState } from "react"
 import {
   Github,
   Linkedin,
-  Twitter,
+
   Mail,
   ExternalLink,
   ArrowRight,
   Heart,
   Code2,
   Zap,
+  Facebook,
+ 
 } from "lucide-react"
+import Image from "next/image"
 
 interface FooterLink {
   label: string
@@ -41,9 +44,10 @@ const footerSections: FooterSection[] = [
     title: "Resources",
     links: [
       { label: "Resume/CV", href: "/resume.pdf" },
-      { label: "GitHub", href: "https://github.com" },
-      { label: "LinkedIn", href: "https://linkedin.com" },
-      { label: "Twitter", href: "https://twitter.com" },
+      { label: "GitHub", href: "https://github.com/asadatik" },
+      { label: "LinkedIn", href: "https://linkedin.com/in/asadujjaman-atik" },
+      { label: "Facebook", href: "https://facebook.com/codewithatik" },
+  
     ],
   },
   {
@@ -59,24 +63,27 @@ const footerSections: FooterSection[] = [
 const socialLinks: FooterLink[] = [
   {
     label: "GitHub",
-    href: "https://github.com",
+    href: "https://github.com/asadatik",
     icon: <Github className="w-5 h-5" />,
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://linkedin.com/in/asadujjaman-atik",
     icon: <Linkedin className="w-5 h-5" />,
   },
   {
-    label: "Twitter",
-    href: "https://twitter.com",
-    icon: <Twitter className="w-5 h-5" />,
+    label: "Facebook",
+    href: "https://facebook.com/codewithatik",
+    icon: <Facebook className="w-5 h-5" />,
   },
   {
     label: "Email",
-    href: "mailto:hello@example.com",
+    href: "asadatik1995@gmail.com",
     icon: <Mail className="w-5 h-5" />,
   },
+
+
+
 ]
 
 // Animated footer link component
@@ -256,6 +263,24 @@ function ScrollToTopButton() {
   )
 }
 
+
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.4,
+      ease: "easeOut",
+      // or if TS complains: ease: [0.17, 0.67, 0.83, 0.67],
+    },
+  }),
+}
+
+
+
 export function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-black overflow-hidden pt-20 md:pt-24 pb-8">
@@ -378,15 +403,34 @@ export function Footer() {
             className="col-span-1 md:col-span-2 lg:col-span-1"
           >
             <div className="mb-6">
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="inline-flex items-center gap-2 mb-4 cursor-default"
-              >
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center font-bold text-slate-950">
-                  AC
-                </div>
-                <span className="font-bold text-white text-lg">Alex Chen</span>
-              </motion.div>
+                  {/* Logo with premium animation */}
+            <motion.div
+              custom={0}
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <Link href="/" className="flex items-center gap-2 group">
+                <motion.div
+                  whileHover={{
+                    scale: 1.12,
+                    rotate: 8,
+                    boxShadow: "0 0 20px rgba(6, 249, 241, 0.4)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  className="w-14 h-14 rounded-lg overflow-hidden cursor-pointer relative"
+                >
+                  <Image
+                    src="/Atik.png"
+                    alt="Atik logo"
+                    fill                   // fills parent 40x40 box
+                    className="object-contain"
+                    sizes="40px"
+                  />
+                </motion.div>
+              </Link>
+            </motion.div>
 
               <p className="text-sm text-gray-400 leading-relaxed">
                 Full-stack developer crafting beautiful and functional web experiences with modern technologies.
@@ -513,7 +557,7 @@ export function Footer() {
           {/* Copyright */}
           <div className="text-center md:text-left">
             <p className="text-sm text-gray-500 flex items-center gap-2 justify-center md:justify-start">
-              © 2024 Alex Chen. Built with{" "}
+              © 2024 Asadujjaman Atik . Built with{" "}
               <motion.span
                 animate={{
                   scale: [1, 1.2, 1],

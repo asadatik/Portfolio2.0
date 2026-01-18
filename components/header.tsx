@@ -91,7 +91,7 @@ export function Header() {
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: "100%", opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"
+            className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"
           />
         )}
 
@@ -324,7 +324,7 @@ export function Header() {
 
       {/* Scroll progress bar */}
       <motion.div
-        className="fixed top-16 left-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 z-50"
+        className="fixed top-16 left-0 h-[2px] bg-linear-to-r from-cyan-500 via-purple-500 to-cyan-500 z-50"
         style={{
           width: `${scrollProgress}%`,
           background: "linear-gradient(90deg, #06f9f1, #a855f7, #06f9f1)",
