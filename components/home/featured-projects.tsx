@@ -6,7 +6,8 @@ import { useState, useEffect } from "react"
 import { ArrowRight, ExternalLink, Github, ChevronLeft, ChevronRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { projects, type Project } from "@/data/projects"
-import { PremiumButton } from "./premium-button"
+import { PremiumButton } from "../premium-button"
+
 
 export function FeaturedProjects() {
   const [currentIndex, setCurrentIndex] = useState(0)

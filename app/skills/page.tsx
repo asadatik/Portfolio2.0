@@ -764,3 +764,8 @@ export function SkillsShowcase() {
     </section>
   )
 }
+
+
+export default function SkillsPage() {
+  return <SkillsShowcase />
+}

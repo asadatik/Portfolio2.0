@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Mail, Github, Linkedin, Twitter, Send, Check } from "lucide-react"
+import { Mail, Github, Linkedin, Twitter, Send, Check, Facebook } from "lucide-react"
 import { profile } from "@/data/profile"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -15,20 +15,22 @@ const socialLinks = [
     name: "GitHub",
     icon: Github,
     href: profile.social.github,
-    username: "@alexjohnson",
+    username: "asadatik",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
     href: profile.social.linkedin,
-    username: "in/alexjohnson",
+    username: "in/asadujjaman-atik",
   },
+
   {
-    name: "Twitter",
-    icon: Twitter,
-    // href: profile.social.twitter,
-    username: "@alexjohnson",
+    name: "Facebook",
+    icon: Facebook,
+    href: profile.social.facebook,
+    username: "codewithatik",
   },
+
 ]
 
 export default function ContactPage() {
@@ -176,17 +178,23 @@ export default function ContactPage() {
                     </motion.div>
                   </div>
 
-                  <PremiumButton
+
+                   {/* Submit Button */}  
+                  <div className="flex justify-center"  >
+                         <PremiumButton
                     type="submit"
                     disabled={status === "loading" || status === "success"}
-                    size="medium"
+                    size="large"
                     variant={status === "success" ? "success" : "primary"}
-                    loading={status === "loading"}
-                    className="w-full"
+                    className="flex items-center "
                   >
                     <Send className="w-5 h-5" />
                     {status === "idle" ? "Send Message" : status === "loading" ? "Sending..." : "Message Sent!"}
                   </PremiumButton>
+                  </div>
+                 
+
+
 
                   {/* Success message */}
                   <AnimatePresence>
