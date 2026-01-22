@@ -22,35 +22,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://yoursite.com",
+    url: "https://protfolio-ten-weld.vercel.app",
     siteName: profile.name,
     title: `${profile.name} - ${profile.role}`,
     description: profile.tagline,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: `${profile.name} - ${profile.role}`,
-    description: profile.tagline,
-    creator: "@alexjohnson",
-  },
-  generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
-  },
+    icon: "/atik.pic.png",  
+    shortcut: "/atik.pic.png",
+    apple: "/atik.pic.png",  
+  }
+ 
 }
 
 export default function RootLayout({
@@ -60,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+<body className={`${_geist.className} font-sans antialiased`}>
         <Header />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
